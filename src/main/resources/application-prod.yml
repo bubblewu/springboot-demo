@@ -1,0 +1,14 @@
+server:
+  address: localhost
+  port: 8080
+  servlet:
+   context-path: /
+
+logging:
+  config: classpath:log4j2.xml
+
+spring:
+  devtools:
+   restart:
+    enabled: true
+    exclude: static/**,public/**

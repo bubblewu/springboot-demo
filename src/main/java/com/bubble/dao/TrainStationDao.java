@@ -1,8 +1,11 @@
 package com.bubble.dao;
 
+import com.alicp.jetcache.anno.CacheType;
+import com.alicp.jetcache.anno.Cached;
 import com.bubble.domain.entity.station.TrainStationEntity;
 
 import java.util.List;
+import java.util.concurrent.TimeUnit;
 
 /**
  * 国内火车站点信息
@@ -12,6 +15,7 @@ import java.util.List;
  **/
 public interface TrainStationDao {
 
+    @Cached(name = "TrainStationDao.queryAll", cacheType = CacheType.BOTH, expire = 24, timeUnit = TimeUnit.HOURS)
     List<TrainStationEntity> queryAll();
 
 }

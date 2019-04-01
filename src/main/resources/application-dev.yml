@@ -2,7 +2,7 @@ server:
   address: localhost
   port: 8080
   servlet:
-    context-path: /
+   context-path: /
 
 logging:
   config: classpath:log4j2.xml
@@ -12,3 +12,19 @@ spring:
    restart:
     enabled: true
     exclude: static/**,public/**
+  data:
+    mongodb:
+      flight:
+        host: localhost
+        port: 27017
+        database: flight
+        authentication-database: flight
+        username: admin
+        password: password
+      tips:
+        host: localhost
+        port: 27017
+        database: train
+        authentication-database: train
+        username: admin
+        password: password

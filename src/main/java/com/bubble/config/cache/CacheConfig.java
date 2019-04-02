@@ -31,6 +31,8 @@ import java.util.concurrent.TimeUnit;
  * - 同类中的方法直接互调缓存失效。
  * 因为Spring Cache的注解是采用Spring Aop来动态代理的，同个类中的调用无法生效。
  * - 实体类（xxxEntity）需要继承Serializable接口
+ * - 远程缓存Redis使用时，过期时间需错开，避免缓存雪崩现象；
+ * - 缓存的key尽量简洁概要，减少内存占用；
  *
  * @author wugang
  * date: 2019-04-01 18:51
@@ -101,14 +103,17 @@ public class CacheConfig {
                 .jedisPool(pool);
         remoteBuilders.put(CacheConsts.DEFAULT_AREA, redisCacheBuilder);
 
+        // 参数配置可参考：https://github.com/alibaba/jetcache/wiki/Config_CN
         GlobalCacheConfig globalCacheConfig = new GlobalCacheConfig();
         globalCacheConfig.setConfigProvider(configProvider);
         globalCacheConfig.setLocalCacheBuilders(localBuilders);
         globalCacheConfig.setRemoteCacheBuilders(remoteBuilders);
         globalCacheConfig.setStatIntervalMinutes(10);
+        // @Cached和@CreateCache自动生成name的时候，为了不让name太长，hiddenPackages指定的包名前缀被截掉
         String[] hiddenPackages = {"com.bubble"};
         globalCacheConfig.setHiddenPackages(hiddenPackages);
         globalCacheConfig.setEnableMethodCache(true);
+        globalCacheConfig.setAreaInCacheName(false); // key的前缀默认加default，取消
         return globalCacheConfig;
     }
 

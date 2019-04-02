@@ -15,7 +15,7 @@ import java.util.concurrent.TimeUnit;
  **/
 public interface TrainStationDao {
 
-    @Cached(name = "TrainStationDao.queryAll", cacheType = CacheType.BOTH, expire = 24, timeUnit = TimeUnit.HOURS)
+    @Cached(name = "trainStation.query", cacheType = CacheType.BOTH, expire = 24, timeUnit = TimeUnit.HOURS)
     List<TrainStationEntity> queryAll();
 
 }

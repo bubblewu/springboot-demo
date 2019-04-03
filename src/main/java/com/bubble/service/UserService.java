@@ -16,6 +16,6 @@ public interface UserService {
 
     List<UserEntity> findAll();
 
-    List<UserEntity> delete(Integer id);
+    int delete(String name);
 
 }

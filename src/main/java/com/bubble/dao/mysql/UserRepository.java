@@ -1,9 +1,11 @@
 package com.bubble.dao.mysql;
 
 import com.bubble.domain.entity.user.UserEntity;
+import org.springframework.data.jpa.repository.Modifying;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.Repository;
 import org.springframework.scheduling.annotation.Async;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.io.Serializable;
 import java.util.List;
@@ -34,11 +36,19 @@ public interface UserRepository extends Repository<UserEntity, Long>, Serializab
     }
 
     @Query("select u from UserEntity u")
+    List<UserEntity> findAll();
+
+    @Query("select u from UserEntity u")
     Stream<UserEntity> streamAllUsers();
 
     Stream<UserEntity> findAllByNameIsNotNull();
 
     @Async
     CompletableFuture<List<UserEntity>> readAllBy();
+
+    @Modifying
+    @Transactional
+    @Query("delete from UserEntity u where u.name = ?1")
+    int deleteByName(String name);
 
 }

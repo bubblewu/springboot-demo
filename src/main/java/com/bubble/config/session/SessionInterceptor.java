@@ -1,4 +1,4 @@
-package com.bubble.controller.session;
+package com.bubble.config.session;
 
 import org.springframework.web.servlet.HandlerInterceptor;
 import org.springframework.web.servlet.ModelAndView;

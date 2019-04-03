@@ -44,7 +44,7 @@ public class LoginController {
                 criteriaQuery.where(criteriaBuilder.equal(root.get("name"), user.getName()));
                 return null;
             }
-        }).get();
+        }).orElse(null);
         //用户不存在
         if (userEntity == null) {
             flag = false;

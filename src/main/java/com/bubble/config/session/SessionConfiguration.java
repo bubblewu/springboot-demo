@@ -1,4 +1,4 @@
-package com.bubble.controller.session;
+package com.bubble.config.session;
 
 import org.springframework.context.annotation.Configuration;
 import org.springframework.web.servlet.config.annotation.InterceptorRegistry;

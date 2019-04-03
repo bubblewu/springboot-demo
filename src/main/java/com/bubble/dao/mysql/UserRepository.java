@@ -1,6 +1,8 @@
 package com.bubble.dao.mysql;
 
 import com.bubble.domain.entity.user.UserEntity;
+import org.springframework.data.jpa.domain.Specification;
+import org.springframework.data.jpa.repository.JpaSpecificationExecutor;
 import org.springframework.data.jpa.repository.Modifying;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.Repository;
@@ -19,11 +21,14 @@ import java.util.stream.Stream;
  * @author wugang
  * date: 2019-04-03 10:28
  **/
-//public interface UserRepository extends Repository<UserEntity, Long>, JpaSpecificationExecutor<UserEntity>, Serializable {
+public interface UserRepository extends Repository<UserEntity, Long>, JpaSpecificationExecutor<UserEntity>, Serializable {
 // UserRepository继承了JpaRepository接口（SpringDataJPA提供的简单数据操作接口）;
 // JpaSpecificationExecutor（SpringDataJPA提供的复杂查询接口）
 // Serializable（序列化接口）。
-public interface UserRepository extends Repository<UserEntity, Long>, Serializable {
+
+
+//    @Override
+//    Optional<UserEntity> findOne(Specification<UserEntity> spec);
 
     Optional<UserEntity> findById(long id);
 

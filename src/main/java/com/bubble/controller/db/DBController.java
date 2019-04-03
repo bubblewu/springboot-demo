@@ -1,4 +1,4 @@
-package com.bubble.controller;
+package com.bubble.controller.db;
 
 import com.bubble.domain.entity.station.TrainStationEntity;
 import com.bubble.service.MongoService;

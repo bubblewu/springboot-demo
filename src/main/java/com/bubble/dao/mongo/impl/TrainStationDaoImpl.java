@@ -1,6 +1,6 @@
-package com.bubble.dao.impl;
+package com.bubble.dao.mongo.impl;
 
-import com.bubble.dao.TrainStationDao;
+import com.bubble.dao.mongo.TrainStationDao;
 import com.bubble.domain.entity.station.TrainStationEntity;
 import com.google.common.collect.Lists;
 import org.springframework.beans.factory.annotation.Autowired;

@@ -14,3 +14,5 @@
 （可参考：[JetCache官方文档](https://github.com/alibaba/jetcache/wiki)）
 - 对POST参数进行验证（自定义日期格式验证）；
 - 异常信息拦截，输出指定数据格式；
+- Spring Data JPA 操作MySQL（[JPA和Spring Data](http://blog.didispace.com/books/spring-boot-reference/IV.%20Spring%20Boot%20features/29.3.%20JPA%20and%20%E2%80%98Spring%20Data%E2%80%99.html)）；
+- JDBC连接池、监控组件Druid配置 [Druid](https://github.com/alibaba/druid])；

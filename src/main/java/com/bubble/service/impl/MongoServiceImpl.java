@@ -1,6 +1,6 @@
 package com.bubble.service.impl;
 
-import com.bubble.dao.TrainStationDao;
+import com.bubble.dao.mongo.TrainStationDao;
 import com.bubble.domain.entity.station.TrainStationEntity;
 import com.bubble.service.MongoService;
 import org.slf4j.Logger;

@@ -9,7 +9,7 @@ package com.bubble.domain;
 public class ResultData {
     private int code; // 0：失败；1：成功
     private String msg;
-    private String data;
+    private Object data;
 
     public enum Code {
         SUCCESS(1),
@@ -46,11 +46,11 @@ public class ResultData {
         this.msg = msg;
     }
 
-    public String getData() {
+    public Object getData() {
         return data;
     }
 
-    public void setData(String data) {
+    public void setData(Object data) {
         this.data = data;
     }
 

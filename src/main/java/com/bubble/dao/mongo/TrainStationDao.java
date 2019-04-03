@@ -1,4 +1,4 @@
-package com.bubble.dao;
+package com.bubble.dao.mongo;
 
 import com.alicp.jetcache.anno.CacheType;
 import com.alicp.jetcache.anno.Cached;

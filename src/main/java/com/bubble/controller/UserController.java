@@ -55,6 +55,11 @@ public class UserController {
         return userService.findAll();
     }
 
+    @PutMapping(value = "/update")
+    public int update(@RequestParam(value = "name") String name, String pwd) {
+        return userService.updatePwdByName(name, pwd);
+    }
+
     @DeleteMapping(value = "/delete")
     public int delete(@RequestParam(value = "name") String name) {
         return userService.delete(name);

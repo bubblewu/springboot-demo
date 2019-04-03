@@ -35,6 +35,11 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
+    public int updatePwdByName(String name, String pwd) {
+        return userRepository.updatePwdByName(name, pwd);
+    }
+
+    @Override
     public int delete(String name) {
         return userRepository.deleteByName(name);
     }

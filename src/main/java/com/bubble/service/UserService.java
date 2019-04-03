@@ -16,6 +16,8 @@ public interface UserService {
 
     List<UserEntity> findAll();
 
+    int updatePwdByName(String name, String pwd);
+
     int delete(String name);
 
 }

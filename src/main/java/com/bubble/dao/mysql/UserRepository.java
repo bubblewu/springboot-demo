@@ -48,6 +48,11 @@ public interface UserRepository extends Repository<UserEntity, Long>, Serializab
 
     @Modifying
     @Transactional
+    @Query("update UserEntity u set u.pwd = ?2 where u.name = ?1")
+    int updatePwdByName(String name, String pwd);
+
+    @Modifying
+    @Transactional
     @Query("delete from UserEntity u where u.name = ?1")
     int deleteByName(String name);
 

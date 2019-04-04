@@ -31,6 +31,7 @@
         <httpclient.version>4.5.7</httpclient.version>
         <jetcache.version>2.5.11</jetcache.version>
         <caffeine.version>2.7.0</caffeine.version>
+        <mail.version>2.1.3.RELEASE</mail.version>
     </properties>
 
     <dependencies>
@@ -191,6 +192,13 @@
             <artifactId>httpclient</artifactId>
             <version>${httpclient.version}</version>
         </dependency>
+
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-mail</artifactId>
+            <version>${mail.version}</version>
+        </dependency>
+
     </dependencies>
 
     <build>

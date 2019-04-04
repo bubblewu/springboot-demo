@@ -76,3 +76,21 @@ spring:
       prefix: /WEB-INF/jsp/
       suffix: .jsp
 
+
+# 邮件
+#对应发送服务器的smtp服务地址
+#发件人邮箱地址
+#mail.from.address=xxxx@qq.com
+##smtp授权码
+#mail.from.smtp.pwd=xxxxxx
+##发件人邮箱显示昵称，可以自定义
+#mail.from.nickname=xxxx
+mail:
+  smtp:
+    service: smtp.qq.com
+    prot: 587
+  from:
+    address: 960758921@qq.com
+    smtp:
+      pwd: myihkkyvtxegbahg
+    nickname: 邮件接口

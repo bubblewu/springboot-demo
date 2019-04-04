@@ -1,9 +1,11 @@
 package com.bubble.controller;
 
-import com.bubble.domain.entity.param.TripEntity;
+import com.bubble.domain.entity.trip.TripEntity;
 import com.bubble.domain.exception.ValidationFailedException;
+import com.bubble.service.CheckService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
 import org.springframework.http.HttpStatus;
 import org.springframework.validation.Errors;
@@ -26,6 +28,13 @@ import java.util.Optional;
 @EnableAutoConfiguration
 public class TestController {
     private static final Logger LOGGER = LoggerFactory.getLogger(TestController.class);
+
+    private final CheckService checkService;
+
+    @Autowired
+    public TestController(CheckService checkService) {
+        this.checkService = checkService;
+    }
 
     /**
      * GET: http://localhost:8080/test/log
@@ -53,33 +62,9 @@ public class TestController {
     @PostMapping(value = "/valid")
     @ResponseStatus(HttpStatus.CREATED)
     public String testPostParamValid(@RequestBody @Valid TripEntity trip, Errors bodyErrors) {
-        checkErrors(Optional.ofNullable(bodyErrors));
+        checkService.checkErrors(Optional.ofNullable(bodyErrors));
         LOGGER.info("trip: {}", trip.toString());
         return trip.toString();
-    }
-
-    private void checkErrors(Optional<Errors> bodyErrors) {
-        StringBuilder sb = new StringBuilder();
-        boolean isError = false;
-        if (bodyErrors.isPresent() && bodyErrors.get().hasErrors()) {
-            isError = true;
-            bodyErrors.get().getAllErrors().forEach(error -> {
-                if (error instanceof FieldError) {
-                    FieldError fieldError = (FieldError) error;
-                    sb.append("Body参数: [").append(fieldError.getField());
-                    sb.append("] ").append(fieldError.getDefaultMessage());
-                } else {
-                    sb.append(error.getDefaultMessage());
-                }
-                sb.append(", ");
-            });
-
-        }
-        if (isError) {
-            String msg = sb.substring(0, sb.length() - 2);
-            LOGGER.error("valid params illegal: {}", msg);
-            throw new ValidationFailedException(msg);
-        }
     }
 
 }

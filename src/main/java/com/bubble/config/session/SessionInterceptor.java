@@ -7,6 +7,8 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 /**
+ * Session保存
+ *
  * @author wugang
  * date: 2019-04-03 18:02
  **/

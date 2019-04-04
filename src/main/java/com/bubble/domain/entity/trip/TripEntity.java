@@ -1,4 +1,4 @@
-package com.bubble.domain.entity.param;
+package com.bubble.domain.entity.trip;
 
 import com.bubble.domain.validation.DateTime;
 import org.hibernate.validator.constraints.Length;

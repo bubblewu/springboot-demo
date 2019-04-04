@@ -1,4 +1,4 @@
-package com.bubble.domain.entity;
+package com.bubble.config.mysql;
 
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.data.jpa.repository.config.EnableJpaAuditing;

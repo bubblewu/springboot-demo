@@ -40,6 +40,16 @@ public class MailController {
         this.checkService = checkService;
     }
 
+    /**
+     * - POST:
+     * http://localhost:8080/mail/send
+     * - Body:
+     * {
+     * "title": "测试邮件",
+     * "content": "来自SpringBoot-Demo的测试",
+     * "targets":["111@qq.com","123@qq.com"]
+     * }
+     */
     @PostMapping(value = "/send")
     public ResultData send(@RequestBody @Valid SendMailEntity sendMail, Errors bodyErrors) {
         Instant begin = Instant.now();
